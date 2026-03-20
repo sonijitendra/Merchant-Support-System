@@ -1,0 +1,22 @@
+const PRIORITY_OPTIONS = ["Low", "Medium", "High"];
+const STATUS_OPTIONS = ["NEW", "INVESTIGATING", "RESOLVED"];
+const STATUS_TRANSITIONS = {
+  NEW: ["INVESTIGATING"],
+  INVESTIGATING: ["RESOLVED"],
+  RESOLVED: [],
+};
+const SORT_OPTIONS = ["latest", "priority"];
+const DEFAULT_PAGE = 1;
+const DEFAULT_LIMIT = 6;
+const MAX_LIMIT = 24;
+
+module.exports = {
+  DEFAULT_LIMIT,
+  DEFAULT_PAGE,
+  MAX_LIMIT,
+  PRIORITY_OPTIONS,
+  SORT_OPTIONS,
+  STATUS_OPTIONS,
+  STATUS_TRANSITIONS,
+};
+

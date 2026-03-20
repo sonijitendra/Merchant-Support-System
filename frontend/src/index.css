@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.18), transparent 24rem),
+    radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.12), transparent 24rem),
+    linear-gradient(180deg, #f7f4ed 0%, #edf4f7 100%);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+@layer components {
+  .panel {
+    @apply border border-white/70 bg-white/80 shadow-xl shadow-slate-200/70 backdrop-blur;
+  }
+
+  .field-input {
+    @apply w-full rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-400 focus:ring-4 focus:ring-slate-200/80;
+  }
+
+  .field-error {
+    @apply text-sm font-medium text-rose-600;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center rounded-2xl bg-slate-950 font-semibold text-white transition hover:bg-slate-800;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] ring-1 ring-inset;
+  }
+}

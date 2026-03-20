@@ -1,0 +1,102 @@
+{
+  "info": {
+    "name": "Support Ticket System",
+    "_postman_id": "2f2c97e4-089d-4f6e-9b99-3c9f9b7e5a35",
+    "description": "Assessment collection for the Support Ticket System API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Ticket",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"Payment settlement delay\",\n  \"message\": \"Merchant payout has not arrived in the expected window and support needs to investigate.\",\n  \"priority\": \"High\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tickets",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "tickets"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Tickets",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/tickets?page=1&limit=6&sort=latest",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "6"
+            },
+            {
+              "key": "sort",
+              "value": "latest"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Ticket Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"INVESTIGATING\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tickets/:ticketId",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "tickets",
+            ":ticketId"
+          ],
+          "variable": [
+            {
+              "key": "ticketId",
+              "value": "replace-with-ticket-id"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api"
+    }
+  ]
+}
