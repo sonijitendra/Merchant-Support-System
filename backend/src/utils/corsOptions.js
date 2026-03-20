@@ -1,5 +1,5 @@
 const buildCorsOptions = () => {
-  const allowedOrigins = (process.env.CLIENT_URL || "https://merchant-support-system.vercel.app/")
+  const allowedOrigins = (process.env.CLIENT_URL || "https://merchant-support-system.vercel.app")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean);
