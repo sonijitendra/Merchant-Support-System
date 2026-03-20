@@ -240,5 +240,5 @@ curl -X PATCH http://localhost:5000/api/tickets/TICKET_ID \
 
 ## Live Demo
 
-- Frontend: `Add deployed Vercel URL here`
-- Backend: `Add deployed Render URL here`
+- Frontend: `https://merchant-support-system.vercel.app`
+- Backend: `https://merchant-support-system.onrender.com/`
