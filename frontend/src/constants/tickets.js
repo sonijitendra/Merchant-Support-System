@@ -17,6 +17,7 @@ export const SORT_OPTIONS = [
   { value: "priority", label: "Highest priority" },
 ];
 export const DEFAULT_FILTERS = {
+  search: "",
   status: "",
   priority: "",
   sort: "latest",
@@ -42,4 +43,3 @@ export const STATUS_BADGE_STYLES = {
   INVESTIGATING: "bg-amber-100 text-amber-700 ring-amber-200",
   RESOLVED: "bg-emerald-100 text-emerald-700 ring-emerald-200",
 };
-

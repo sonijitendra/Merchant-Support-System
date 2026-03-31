@@ -2,7 +2,9 @@ import apiClient from "./axios";
 
 const buildParams = (params) =>
   Object.fromEntries(
-    Object.entries(params).filter(([, value]) => value !== "" && value !== null)
+    Object.entries(params).filter(
+      ([, value]) => value !== "" && value !== null && value !== undefined
+    )
   );
 
 export const fetchTickets = async (params) => {

@@ -8,6 +8,14 @@ const priorityRank = {
 
 const filterTickets = (tickets, query) =>
   tickets.filter((ticket) => {
+    if (query.search) {
+      const searchTerm = query.search.toLowerCase();
+
+      if (!ticket.subject.toLowerCase().includes(searchTerm)) {
+        return false;
+      }
+    }
+
     if (query.status && ticket.status !== query.status) {
       return false;
     }
@@ -62,4 +70,3 @@ module.exports = {
   paginateTickets,
   sortTickets,
 };
-

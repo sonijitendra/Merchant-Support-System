@@ -3,8 +3,16 @@ import {
   FILTER_STATUS_OPTIONS,
   SORT_OPTIONS,
 } from "../constants/tickets";
+import TicketSearch from "./TicketSearch";
 
-function FilterBar({ filters, hasActiveFilters, isLoading, onChange, onReset }) {
+function FilterBar({
+  filters,
+  hasActiveFilters,
+  isLoading,
+  onChange,
+  onReset,
+  onSearch,
+}) {
   return (
     <section className="panel rounded-3xl p-5">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -24,6 +32,14 @@ function FilterBar({ filters, hasActiveFilters, isLoading, onChange, onReset }) 
         >
           Reset filters
         </button>
+      </div>
+
+      <div className="mt-6">
+        <TicketSearch
+          disabled={isLoading}
+          value={filters.search}
+          onSearch={onSearch}
+        />
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -80,4 +96,3 @@ function FilterBar({ filters, hasActiveFilters, isLoading, onChange, onReset }) 
 }
 
 export default FilterBar;
-

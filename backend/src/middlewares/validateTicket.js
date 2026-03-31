@@ -70,7 +70,7 @@ const validateStatusUpdate = (req, res, next) => {
 
 const validateTicketQuery = (req, res, next) => {
   const errors = {};
-  const { limit, page, priority, sort, status } = req.query;
+  const { limit, page, priority, search, sort, status } = req.query;
 
   if (page !== undefined) {
     const pageNumber = Number.parseInt(page, 10);
@@ -100,6 +100,22 @@ const validateTicketQuery = (req, res, next) => {
     errors.priority = "Priority filter must be Low, Medium, or High.";
   }
 
+  if (search !== undefined) {
+    if (typeof search !== "string") {
+      errors.search = "Search must be a string.";
+    } else {
+      const trimmedSearch = search.trim();
+
+      if (trimmedSearch.length > 120) {
+        errors.search = "Search must be 120 characters or fewer.";
+      } else if (trimmedSearch.length === 0) {
+        delete req.query.search;
+      } else {
+        req.query.search = trimmedSearch;
+      }
+    }
+  }
+
   if (sort !== undefined && !SORT_OPTIONS.includes(sort)) {
     errors.sort = "Sort must be latest or priority.";
   }
@@ -117,4 +133,3 @@ module.exports = {
   validateStatusUpdate,
   validateTicketQuery,
 };
-

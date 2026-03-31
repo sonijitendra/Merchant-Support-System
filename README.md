@@ -1,11 +1,12 @@
 # Support Ticket System
 
-A production-minded MERN support queue for merchants to create, track, filter, and resolve tickets through a strict workflow.
+A production-minded MERN support queue for merchants to create, search, track, filter, and resolve tickets through a strict workflow.
 
 ## Highlights
 
 - Create tickets with subject, message, and priority
 - Filter by status and priority
+- Search tickets by subject
 - Sort by latest or priority
 - Paginate ticket results
 - View dashboard stats for total, open, and resolved tickets
@@ -139,6 +140,7 @@ Supported query params:
 
 - `page`
 - `limit`
+- `search`
 - `status`
 - `priority`
 - `sort=latest|priority`
@@ -206,6 +208,7 @@ After the frontend is deployed, update `CLIENT_URL` with the Vercel domain.
 - Create a ticket with valid data
 - Validate required field errors
 - Filter the list by status and priority
+- Search tickets by subject keyword
 - Sort by latest and priority
 - Navigate between pages
 - Move a ticket from `NEW` to `INVESTIGATING`

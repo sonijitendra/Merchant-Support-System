@@ -39,7 +39,10 @@ function App() {
   const [feedback, setFeedback] = useState(null);
 
   const hasActiveFilters = Boolean(
-    filters.status || filters.priority || filters.sort !== DEFAULT_FILTERS.sort
+    filters.search ||
+      filters.status ||
+      filters.priority ||
+      filters.sort !== DEFAULT_FILTERS.sort
   );
 
   const loadTickets = async (nextFilters, options = {}) => {
@@ -91,6 +94,17 @@ function App() {
       {
         ...filters,
         [key]: value,
+        page: 1,
+      },
+      { keepData: true }
+    );
+  };
+
+  const handleSearchSubmit = (search) => {
+    applyFilters(
+      {
+        ...filters,
+        search,
         page: 1,
       },
       { keepData: true }
@@ -182,6 +196,7 @@ function App() {
             isLoading={isLoading}
             onChange={handleFilterChange}
             onReset={handleResetFilters}
+            onSearch={handleSearchSubmit}
           />
 
           <div className="grid gap-6 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.38fr)]">
